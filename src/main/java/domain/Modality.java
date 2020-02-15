@@ -9,37 +9,34 @@ import java.util.List;
 public class Modality implements BaseEntity {
 
     @Id()
-    @GeneratedValue(generator = "modalidade_seq",
-            strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "modalidade_seq", strategy = GenerationType.AUTO)
     @Column(name = "id_modalidade")
     private Long id;
+
     @Column(name = "nome")
     private String name;
 
     @OneToMany(mappedBy = "modality")
     private List<GuideModality> guideModalityList;
 
-    public Modality() {
-    }
+    public Modality() {}
 
     public Modality(String nome) {
         this.name = nome;
     }
 
+    public Modality(Long id, String name) {
+        this(name);
+        this.id = id;
+    }
+
+    @Override
     public Long getId() {
         return id;
     }
 
-    public void setId(Long idModalidade) {
-        this.id = idModalidade;
-    }
-
-    public String getNome() {
-        return name;
-    }
-
-    public void setNome(String nome) {
-        this.name = nome;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

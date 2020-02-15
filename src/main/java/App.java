@@ -12,8 +12,9 @@ public class App {
         modalityDAO.save(new Modality("Caminhada"));
 
         TourTypeDAO tourTypeDAO = new TourTypeDAO();
-        TourType tourType = new TourType("Privativo");
+        TourType tourType = new TourType("Privativo", "Passeio somente para pessoa ou casal");
         tourTypeDAO.save(tourType);
+
 //        List<Modality> modalities = modalityDAO.listarTodos();
 //        for (Modality domain : modalities) {
 //            System.out.println(domain.getId() + " / " + domain.getNome());
