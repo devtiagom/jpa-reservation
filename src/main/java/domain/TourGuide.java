@@ -5,18 +5,29 @@ import java.util.List;
 
 @Entity
 @Table(name = "guia")
-public class TourGuide {
+public class TourGuide implements BaseEntity {
 
     @Id()
-    @GeneratedValue(generator = "guia_seq",
-            strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "guia_seq", strategy = GenerationType.AUTO)
     @Column(name = "id_guia")
     private Long id;
+
     @Column(name = "nome")
     private String name;
 
     @OneToMany(mappedBy = "tourGuide")
     private List<GuideModality> guideModalityList;
+
+    public TourGuide() {}
+
+    public TourGuide(String name) {
+        this.name = name;
+    }
+
+    public TourGuide(Long id, String name) {
+        this(name);
+        this.id = id;
+    }
 
     public Long getId() {
         return id;

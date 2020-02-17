@@ -2,10 +2,6 @@ package dao;
 
 import domain.Modality;
 
-import javax.persistence.*;
-import java.util.List;
-import java.util.Objects;
-
 public class ModalityDAO extends DAO<Modality> {
 
 

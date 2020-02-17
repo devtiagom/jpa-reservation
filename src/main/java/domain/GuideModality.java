@@ -7,8 +7,7 @@ import javax.persistence.*;
 public class GuideModality {
 
     @Id()
-    @GeneratedValue(generator = "guia_modalide_seq",
-            strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "guia_modalide_seq", strategy = GenerationType.AUTO)
     @Column(name = "id_guia_modalidade")
     private Long id;
 
@@ -19,6 +18,18 @@ public class GuideModality {
     @ManyToOne
     @JoinColumn(name = "id_modalidade")
     private Modality modality;
+
+    public GuideModality() {};
+
+    public GuideModality(TourGuide tourGuide, Modality modality) {
+        this.tourGuide = tourGuide;
+        this.modality = modality;
+    }
+
+    public GuideModality(Long id, TourGuide tourGuide, Modality modality) {
+        this(tourGuide, modality);
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
